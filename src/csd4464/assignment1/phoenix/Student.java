@@ -56,6 +56,16 @@ public class Student {
     public void setGrade(double grade) {
         this.grade = grade;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
