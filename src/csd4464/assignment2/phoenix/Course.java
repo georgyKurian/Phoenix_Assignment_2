@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package csd4464.assignment1.phoenix;
+package csd4464.assignment2.phoenix;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +15,13 @@ import java.util.Set;
  */
 public class Course {
     List<Student> students;
+
+    public Course() {
+    }
+    
+    public Course(List<Student> students) {
+        this.students = students;
+    }
     
     public void add(Student student){
         
