@@ -216,4 +216,15 @@ public class CourseTest {
         fail("The test case is a prototype.");
     }
     
+     @Test
+    public void testGetAllMethod() {
+        Course noArg = new Course();
+        boolean expResult = true;
+        boolean result = false;
+        if (noArg.getAll() == null) {
+            result = true;
+        }
+        assertEquals(expResult, result);
+    }
+    
 }
