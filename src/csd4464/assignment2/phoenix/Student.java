@@ -5,11 +5,14 @@
  */
 package csd4464.assignment2.phoenix;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author c0687988
  */
 public class Student {
+
     private String name;
     private String id;
     private String gender;
@@ -59,13 +62,27 @@ public class Student {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+        Student std = (Student) obj;
+        if (this.getName() == std.getName() && this.getId() == std.getId()) {
+            return true;
+        }
+
+        return false;
+
     }
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        JSONObject obj = new JSONObject();
+        obj.put("name", this.name);
+        obj.put("id", this.id);
+        obj.put("gender", this.gender);
+        obj.put("grade", this.grade);
+        
+        return obj.toJSONString();
     }
-    
-    
+
 }
