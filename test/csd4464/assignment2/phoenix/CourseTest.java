@@ -226,5 +226,14 @@ public class CourseTest {
         }
         assertEquals(expResult, result);
     }
-    
+    /**
+     * Test of testParamaterizedCourseMethod of the class Course.
+     */
+    public void testParameterizedCourseMethod() {
+        Course instance = new Course(studentList);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+        
+    }
 }
