@@ -217,7 +217,7 @@ public class CourseTest {
     }
     
     @Test
-    public void testGetAllMethod() {
+    public void testRemoveMethodWithValidStudent() {
         Course noArg = new Course();
         boolean expResult = true;
         boolean result = false;
