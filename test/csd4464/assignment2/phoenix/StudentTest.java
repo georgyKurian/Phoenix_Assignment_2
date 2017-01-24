@@ -184,7 +184,7 @@ public class StudentTest {
     @Test
     public void testToStringWithInitializedObject() {
         Student student = new Student("Mark", "c01", "Male", 2.75);
-        String expResult = "{ \"name\" : \"Mark\", \"id\" : \"c01\", \"gender\" : \"Male\", \"grade\" : 2.75 }";
+        String expResult = "{\"gender\":\"Male\",\"grade\":2.75,\"name\":\"Mark\",\"id\":\"c01\"}";
         String result = student.toString();
         assertEquals(expResult, result);
     }

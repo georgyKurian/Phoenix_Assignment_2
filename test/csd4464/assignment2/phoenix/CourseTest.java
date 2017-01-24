@@ -216,7 +216,7 @@ public class CourseTest {
         fail("The test case is a prototype.");
     }
     
-     @Test
+    @Test
     public void testGetAllMethod() {
         Course noArg = new Course();
         boolean expResult = true;
