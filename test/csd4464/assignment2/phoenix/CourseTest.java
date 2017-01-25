@@ -220,5 +220,52 @@ public class CourseTest {
         String result = instance.toString();
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test to add a new student to the list
+     */
+    @Test
+    public void testAddMethodWithValidStudentObject() {
+        List<Student> stdList = new ArrayList<Student>();
+        stdList.add(new Student("Student8", "C0687", "Female", 3.55));
+
+        Course instance = new Course();
+        instance.add(new Student("Student8", "C0687", "Female", 3.55));
+
+        List<Student> expResult = stdList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of get method
+     */
+    @Test
+    public void testGetMethodValidId() {
+        Course instance = new Course(studentList);
+        Student expResult = studentList.get(2);
+        Student result = instance.get("C0682");
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test for testLessThanOrEqualToGetMethod
+     */
+    @Test
+    public void testGetMethodToTestNegativeValue(){
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get(-1);
+        assertEquals(expResult , result);
+       }
+    /*
+    *Test for notEqualMethod
+    */
+    @Test
+    public void testEqualsMethodToFalse(){
+        Course instance = new Course(studentList);
+        boolean expResult = false;
+        Course instance1= new Course();
+        boolean result = instance.equals(instance1);
+        assertEquals(expResult , result);
+    }
 
 }
