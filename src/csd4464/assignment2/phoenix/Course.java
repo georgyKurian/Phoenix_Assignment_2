@@ -6,6 +6,7 @@
 package csd4464.assignment2.phoenix;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -90,7 +91,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return students.toString();
     }
 
     public Set<Student> getAllByGender(String gender) {
@@ -104,6 +105,27 @@ public class Course {
     }
 
     public Map<String, Set<Student>> getGradeMap() {
-        return null;
+        Map<String, Set<Student>> resultMap = new HashMap<String, Set<Student>>();
+        resultMap.put("A+", new HashSet<Student>());
+        resultMap.put("A", new HashSet<Student>());
+        resultMap.put("A-", new HashSet<Student>());
+        resultMap.put("B+", new HashSet<Student>());
+        resultMap.put("B", new HashSet<Student>());
+
+        for (Student student : students) {
+            if (student.getGrade() == 4.0) {
+                resultMap.get("A+").add(student);
+            } else if (student.getGrade() >= 3.90) {
+                resultMap.get("A").add(student);
+            } else if (student.getGrade() >= 3.80) {
+                resultMap.get("A-").add(student);
+            } else if (student.getGrade() >= 3.70) {
+                resultMap.get("B+").add(student);
+            } else if (student.getGrade() >= 3.60) {
+                resultMap.get("B").add(student);
+            }
+
+        }
+        return resultMap;
     }
 }
