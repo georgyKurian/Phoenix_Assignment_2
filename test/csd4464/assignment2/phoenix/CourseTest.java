@@ -140,14 +140,18 @@ public class CourseTest {
      */
     @Test
     public void testGetAllByGender() {
-        Course instance = new Course(studentList);
+        List<Student> studList = new ArrayList<>();
+        Student a = new Student("Student5", "C0684", "Female", 2.23);
+        Student b = new Student("Student4", "C0683", "Female", 3.13);
+        studList.add(a);
+        studList.add(b);
+        Course instance = new Course(studList);
         Set<Student> studList2 = new HashSet<Student>();
-        studList2.add(new Student("Student5", "C0684", "Female", 2.23));
-        studList2.add(new Student("Student4", "C0683", "Female", 3.13));
+        studList2.add(a);
+        studList2.add(b);
         Set<Student> expResult = studList2;
         Set<Student> result = instance.getAllByGender("Female");
         assertEquals(expResult, result);
-
     }
 
     /**
@@ -250,12 +254,12 @@ public class CourseTest {
      * Test for testLessThanOrEqualToGetMethod
      */
     @Test
-    public void testGetMethodToTestNegativeValue(){
+    public void testGetMethodToTestNegativeValue() {
         Course instance = new Course(studentList);
         Student expResult = null;
         Student result = instance.get(-1);
-        assertEquals(expResult , result);
-       }
+        assertEquals(expResult, result);
+    }
     /*
     *Test for notEqualMethod
     */
