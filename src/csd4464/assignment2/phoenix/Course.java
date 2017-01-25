@@ -72,7 +72,7 @@ public class Course {
         return null;
     }
     
-    public Map<String,Set<Student>> getGradeMap(String gender){
+    public Map<String,Set<Student>> getGradeMap(){
         return null;
     }
 }
