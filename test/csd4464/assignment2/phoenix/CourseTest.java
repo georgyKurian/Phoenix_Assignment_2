@@ -51,16 +51,6 @@ public class CourseTest {
     /**
      * Test of add method, of class Course.
      */
-    @Test
-    public void testAdd() {
-        System.out.println("add");
-        Student student = null;
-        Course instance = new Course();
-        instance.add(student);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
     /**
      * Test of remove method, of class Course.
      */
@@ -145,6 +135,55 @@ public class CourseTest {
     }
 
     /**
+     * Test to add a new student to the list
+     */
+    @Test
+    public void testAdd() {
+        List<Student> stdList = new ArrayList<Student>();
+        stdList.add(new Student("Student8", "C0687", "Female", 3.55));
+
+        Course instance = new Course();
+        instance.add(new Student("Student8", "C0687", "Female", 3.55));
+
+        List<Student> expResult = stdList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of get method
+     */
+    @Test
+    public void testGet() {
+        Course instance = new Course(studentList);
+        Student expResult = studentList.get(2);
+        Student result = instance.get("C0682");
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test for testLessThanOrEqualToGetMethod
+     */
+    @Test
+    public void testLessThanOrEqualToGetMethod(){
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get(-1);
+        assertEquals(expResult , result);
+       }
+    /*
+    *Test for notEqualMethod
+    */
+    @Test
+    public void testnotEqualsMethod(){
+        Course instance = new Course(studentList);
+        boolean expResult = false;
+        Course instance1= new Course();
+        boolean result = instance.equals(instance1);
+        assertEquals(expResult , result);
+    }
+    
+    
+
+    /**
      * Test of getAll method, of class Course.
      */
     @Test
@@ -200,315 +239,9 @@ public class CourseTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of getGradeMap method, of class Course.
-     */
-    @Test
-    public void testGetGradeMap() {
-        System.out.println("getGradeMap");
-        String gender = "";
+   @Test
+    public void testGetGradeMapGet(){
         Course instance = new Course();
-        Map<String, Set<Student>> expResult = null;
-        Map<String, Set<Student>> result = instance.getGradeMap();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testRemoveMethodWithValidStudent() {
-        Course noArg = new Course();
-        boolean expResult = true;
-        boolean result = false;
-        if (noArg.getAll() == null) {
-            result = true;
-        }
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of testParamaterizedCourseMethod of the class Course.
-     */
-    public void testParameterizedCourseMethod() {
-        Course instance = new Course(studentList);
-        List<Student> expResult = studentList;
-        List<Student> result = instance.getAll();
-        assertEquals(expResult, result);
-
-    }
-
-    public void testAllOriginalStudentsMethod() {
-        Course instance = new Course(studentList);
-        Student std = new Student("Student8", "c0690", "male", 4.56);
-        instance.insert(std, 8);
-        studentList.add(8, std);
-        List<Student> expResult = studentList;
-        List<Student> result = instance.getAll();
-        assertEquals(expResult, result);
-
-    }
-
-    public void testinvalidstudentMethod() {
-        Course instance = new Course(studentList);
-        Student expResult = null;
-        Student result = instance.get("C0790");
-        assertEquals(expResult, result);
-    }
-
-    public void testNonCourseObjectMethod() {
-        Object obj = new Object();
-        Course instance = new Course();
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-    }
-    public void testOrderMethod() {
-        Course instance = new Course(studentList);
-        String expResult = "[{\"gender\":\"Male\",\"grade\":3.53,\"name\":\"Student1\",\"id\":\"C0680\"},"+
-                            "{\"gender\":\"Male\",\"grade\":2.53,\"name\":\"Student2\",\"id\":\"C0681\"},"+
-                            "{\"gender\":\"Male\",\"grade\":3.04,\"name\":\"Student3\",\"id\":\"C0682\"},"+
-                            "{\"gender\":\"Female\",\"grade\":3.13,\"name\":\"Student4\",\"id\":\"C0683\"},"+
-                            "{\"gender\":\"Female\",\"grade\":2.23,\"name\":\"Student5\",\"id\":\"C0684\"},"+
-                            "{\"gender\":\"Male\",\"grade\":1.53,\"name\":\"Student6\",\"id\":\"C0685\"},"+
-                            "{\"gender\":\"Male\",\"grade\":3.52,\"name\":\"Student6\",\"id\":\"C0686\"},"+
-                            "{\"gender\":\"Male\",\"grade\":3.33,\"name\":\"Student7\",\"id\":\"C0686\"}]";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-    }
-    
-    
-   }
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        instance.getGradeMap();
+        }    
+}
