@@ -158,6 +158,18 @@ public class StudentTest {
      * Test of equals method, of class Student.
      */
     @Test
+    public void testEqualsStudentWithSameNameAndDifferentId() {
+        Student student1 = new Student("Muller", "c01", "Male", 2.75);
+        Student student2 = new Student("Muller", "c02", "Male", 2.75);
+        boolean expResult = false;
+        boolean result = student1.equals(student2);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of equals method, of class Student.
+     */
+    @Test
     public void testEqualsStudentWithSameIdAndDifferentName() {
         Student student1 = new Student("Mark", "c01", "Male", 2.75);
         Student student2 = new Student("Muller", "c01", "Male", 2.75);
