@@ -24,11 +24,11 @@ public class Course {
     }
     
     public void add(Student student){
-        
+        students.add(student);
     }
     
     public void remove(Student student){
-        
+        students.remove(student);
     }
     
     public void remove(String id){
@@ -36,14 +36,17 @@ public class Course {
     }
     
     public void remove(int position){
-        
+        students.remove(position);
     }
     
     public void insert(Student student, int position){
-        
+        students.add(position, student);
     }
     
     public Student get(String id){
+        for(int i=0;i<students.size()-1;i++){
+        
+        }
         return null;
     }
     
