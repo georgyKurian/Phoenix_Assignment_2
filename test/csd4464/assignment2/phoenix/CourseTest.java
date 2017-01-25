@@ -6,6 +6,7 @@
 package csd4464.assignment2.phoenix;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -59,6 +60,94 @@ public class CourseTest {
         List<Student> expResult = studentList;
         List<Student> result = instance.getAll();
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test GetAllNoArgMethod Constructor
+     */
+    @Test
+    public void testCourseDefaultConstructor() {
+        Course noArg = new Course();
+        List<Student> expResult = new ArrayList<Student>();
+        List<Student> result = noArg.getAll();
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test the testGetAllRemoveIdStudent , class Course
+     */
+    @Test
+    public void testGetAllRemoveIdStudent() {
+        Course instance = new Course(studentList);
+        instance.remove("C0680");
+        studentList.remove(0);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test the testGetAllRemovePositionStudent , class Course
+     */
+    @Test
+    public void testRemovePositionGetAll() {
+        Course instance = new Course(studentList);
+        instance.remove(new Student("Student7", "C0686", "Male", 3.33));
+        studentList.remove(6);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test the testPositionIntegerGet , class Course
+     */
+    @Test
+    public void testPositionIntegerGet() {
+        Course instance = new Course(studentList);
+        Student expResult = studentList.get(1);
+        Student result = instance.get(1);
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test the testPositionIntegergreaterThanOrEqualGet, class Course
+     */
+    @Test
+    public void testPositionIntegergreaterThanOrEqualGet() {
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get(9);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test testEqualsMethod , class Course
+     */
+    @Test
+    public void testEqualsMethod() {
+        Course instance = new Course(studentList);
+        boolean expResult = true;
+        Course instance2 = new Course(studentList);
+        boolean result = instance2.equals(instance);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test testGetAllBy GradeGender, class Course
+     */
+    @Test
+    public void testGetAllByGender() {
+        Course instance = new Course(studentList);
+        Set<Student> studList2 = new HashSet<Student>();
+        studList2.add(new Student("Student4", "C0683", "Female", 3.13));
+        studList2.add(new Student("Student5", "C0684", "Female", 2.23));
+        Set<Student> expResult = studList2;
+        Set<Student> result = instance.getAllByGender("Female");
+        assertEquals(expResult, result);
+
     }
 
 }
