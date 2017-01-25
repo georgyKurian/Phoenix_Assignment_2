@@ -150,4 +150,75 @@ public class CourseTest {
 
     }
 
+    /**
+     * Test testParameterizedCourseMethod
+     */
+    @Test
+    public void testParameterizedCourseMethod() {
+        Course instance = new Course(studentList);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test testAllOriginalStudentsMethod
+     */
+    @Test
+
+    public void testInsertMethodWithValidData() {
+        Course instance = new Course(studentList);
+        Student std = new Student("Student8", "c0690", "male", 4.56);
+        instance.insert(std, 8);
+        studentList.add(8, std);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test testInvalidStudentMethod
+     */
+    @Test
+
+    public void testGetMethodByInvalidStudentId() {
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get("C0790");
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test testNonCourseObjectMethod
+     */
+    @Test
+    public void testEqualsMethodWithNonCourseObject() {
+        Object obj = new Object();
+        Course instance = new Course();
+        boolean expResult = false;
+        boolean result = instance.equals(obj);
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test testOrderMethod
+     */
+    @Test
+    public void testToStringMethod() {
+        Course instance = new Course(studentList);
+        String expResult = "[{\"gender\":\"Male\",\"grade\":3.53,\"name\":\"Student1\",\"id\":\"C0680\"},"
+                + "{\"gender\":\"Male\",\"grade\":2.53,\"name\":\"Student2\",\"id\":\"C0681\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.04,\"name\":\"Student3\",\"id\":\"C0682\"},"
+                + "{\"gender\":\"Female\",\"grade\":3.13,\"name\":\"Student4\",\"id\":\"C0683\"},"
+                + "{\"gender\":\"Female\",\"grade\":2.23,\"name\":\"Student5\",\"id\":\"C0684\"},"
+                + "{\"gender\":\"Male\",\"grade\":1.53,\"name\":\"Student6\",\"id\":\"C0685\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.52,\"name\":\"Student6\",\"id\":\"C0686\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.33,\"name\":\"Student7\",\"id\":\"C0686\"}]";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+
 }
