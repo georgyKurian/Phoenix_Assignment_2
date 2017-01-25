@@ -48,4 +48,17 @@ public class CourseTest {
     public void tearDown() {
     }
 
+    /**
+     * Test of remove method, of class Course.
+     */
+    @Test
+    public void testRemoveWithStudentObject() {
+        Course instance = new Course(studentList);
+        instance.remove(new Student("Student7", "C0686", "Male", 3.33));
+        studentList.remove(6);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+    }
+
 }
