@@ -149,6 +149,7 @@ public class CourseTest {
         List<Student> result = instance.getAll();
         assertEquals(expResult, result);
     }
+
     /**
      * Test of get method
      */
@@ -159,29 +160,29 @@ public class CourseTest {
         Student result = instance.get("C0682");
         assertEquals(expResult, result);
     }
+
     /**
      * Test for testLessThanOrEqualToGetMethod
      */
     @Test
-    public void testLessThanOrEqualToGetMethod(){
+    public void testLessThanOrEqualToGetMethod() {
         Course instance = new Course(studentList);
         Student expResult = null;
         Student result = instance.get(-1);
-        assertEquals(expResult , result);
-       }
+        assertEquals(expResult, result);
+    }
+
     /*
     *Test for notEqualMethod
-    */
+     */
     @Test
-    public void testnotEqualsMethod(){
+    public void testnotEqualsMethod() {
         Course instance = new Course(studentList);
         boolean expResult = false;
-        Course instance1= new Course();
+        Course instance1 = new Course();
         boolean result = instance.equals(instance1);
-        assertEquals(expResult , result);
+        assertEquals(expResult, result);
     }
-    
-    
 
     /**
      * Test of getAll method, of class Course.
@@ -239,9 +240,60 @@ public class CourseTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-   @Test
-    public void testGetGradeMapGet(){
+
+    @Test
+    public void testGetGradeMapGet() {
         Course instance = new Course();
         instance.getGradeMap();
-        }    
+    }
+
+    public void testParameterizedCourseMethod() {
+        Course instance = new Course(studentList);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+
+    }
+
+    public void testAllOriginalStudentsMethod() {
+        Course instance = new Course(studentList);
+        Student std = new Student("Student8", "c0690", "male", 4.56);
+        instance.insert(std, 8);
+        studentList.add(8, std);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+
+    }
+
+    public void testinvalidstudentMethod() {
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get("C0790");
+        assertEquals(expResult, result);
+    }
+
+    public void testNonCourseObjectMethod() {
+        Object obj = new Object();
+        Course instance = new Course();
+        boolean expResult = false;
+        boolean result = instance.equals(obj);
+        assertEquals(expResult, result);
+
+    }
+
+    public void testOrder() {
+        Course instance = new Course(studentList);
+        String expResult = "[{\"gender\":\"Male\",\"grade\":3.53,\"name\":\"Student1\",\"id\":\"C0680\"},"
+                + "{\"gender\":\"Male\",\"grade\":2.53,\"name\":\"Student2\",\"id\":\"C0681\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.04,\"name\":\"Student3\",\"id\":\"C0682\"},"
+                + "{\"gender\":\"Female\",\"grade\":3.13,\"name\":\"Student4\",\"id\":\"C0683\"},"
+                + "{\"gender\":\"Female\",\"grade\":2.23,\"name\":\"Student5\",\"id\":\"C0684\"},"
+                + "{\"gender\":\"Male\",\"grade\":1.53,\"name\":\"Student6\",\"id\":\"C0685\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.52,\"name\":\"Student6\",\"id\":\"C0686\"},"
+                + "{\"gender\":\"Male\",\"grade\":3.33,\"name\":\"Student7\",\"id\":\"C0686\"}]";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+
 }
