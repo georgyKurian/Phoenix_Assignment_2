@@ -21,11 +21,12 @@ import static org.junit.Assert.*;
  * @author Georgi
  */
 public class CourseTest {
-    Course studentCourse ;
+
+    Course studentCourse;
     List<Student> studentList;
-        
+
     public CourseTest() {
-        studentList = new ArrayList<Student>() ;
+        studentList = new ArrayList<Student>();
         studentList.add(new Student("Student1", "C0680", "Male", 3.53));
         studentList.add(new Student("Student2", "C0681", "Male", 2.53));
         studentList.add(new Student("Student3", "C0682", "Male", 3.04));
@@ -35,15 +36,14 @@ public class CourseTest {
         studentList.add(new Student("Student6", "C0686", "Male", 3.52));
         studentList.add(new Student("Student7", "C0686", "Male", 3.33));
     }
-    
-    
+
     @Before
     public void setUp() {
-        
+
         studentCourse = new Course(studentList);
-        
+
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -210,12 +210,12 @@ public class CourseTest {
         String gender = "";
         Course instance = new Course();
         Map<String, Set<Student>> expResult = null;
-        Map<String, Set<Student>> result = instance.getGradeMap(gender);
+        Map<String, Set<Student>> result = instance.getGradeMap();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     @Test
     public void testRemoveMethodWithValidStudent() {
         Course noArg = new Course();
@@ -226,6 +226,7 @@ public class CourseTest {
         }
         assertEquals(expResult, result);
     }
+
     /**
      * Test of testParamaterizedCourseMethod of the class Course.
      */
@@ -234,6 +235,280 @@ public class CourseTest {
         List<Student> expResult = studentList;
         List<Student> result = instance.getAll();
         assertEquals(expResult, result);
-        
+
     }
-}
+
+    public void testAllOriginalStudentsMethod() {
+        Course instance = new Course(studentList);
+        Student std = new Student("Student8", "c0690", "male", 4.56);
+        instance.insert(std, 8);
+        studentList.add(8, std);
+        List<Student> expResult = studentList;
+        List<Student> result = instance.getAll();
+        assertEquals(expResult, result);
+
+    }
+
+    public void testinvalidstudentMethod() {
+        Course instance = new Course(studentList);
+        Student expResult = null;
+        Student result = instance.get("C0790");
+        assertEquals(expResult, result);
+    }
+
+    public void testNonCourseObjectMethod() {
+        Object obj = new Object();
+        Course instance = new Course();
+        boolean expResult = false;
+        boolean result = instance.equals(obj);
+        assertEquals(expResult, result);
+    }
+    public void testOrderMethod() {
+        Course instance = new Course(studentList);
+        String expResult = "[{\"gender\":\"Male\",\"grade\":3.53,\"name\":\"Student1\",\"id\":\"C0680\"},"+
+                            "{\"gender\":\"Male\",\"grade\":2.53,\"name\":\"Student2\",\"id\":\"C0681\"},"+
+                            "{\"gender\":\"Male\",\"grade\":3.04,\"name\":\"Student3\",\"id\":\"C0682\"},"+
+                            "{\"gender\":\"Female\",\"grade\":3.13,\"name\":\"Student4\",\"id\":\"C0683\"},"+
+                            "{\"gender\":\"Female\",\"grade\":2.23,\"name\":\"Student5\",\"id\":\"C0684\"},"+
+                            "{\"gender\":\"Male\",\"grade\":1.53,\"name\":\"Student6\",\"id\":\"C0685\"},"+
+                            "{\"gender\":\"Male\",\"grade\":3.52,\"name\":\"Student6\",\"id\":\"C0686\"},"+
+                            "{\"gender\":\"Male\",\"grade\":3.33,\"name\":\"Student7\",\"id\":\"C0686\"}]";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+    
+    
+   }
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
