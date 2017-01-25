@@ -78,33 +78,6 @@ public class CourseTest {
     }
 
     /**
-     * Test of remove method, of class Course.
-     */
-    @Test
-    public void testRemove_int() {
-        System.out.println("remove");
-        int position = 0;
-        Course instance = new Course();
-        instance.remove(position);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of insert method, of class Course.
-     */
-    @Test
-    public void testInsert() {
-        System.out.println("insert");
-        Student student = null;
-        int position = 0;
-        Course instance = new Course();
-        instance.insert(student, position);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of get method, of class Course.
      */
     @Test
@@ -185,13 +158,13 @@ public class CourseTest {
     }
 
     /**
-     * Test of getAll method, of class Course.
+     * Test of remove method, of class Course.
      */
     @Test
-    public void testGetAll() {
+    public void testRemoveWithStudentObject() {
         Course instance = new Course(studentList);
         instance.remove(new Student("Student7", "C0686", "Male", 3.33));
-        studentList.remove(7);
+        studentList.remove(6);
         List<Student> expResult = studentList;
         List<Student> result = instance.getAll();
         assertEquals(expResult, result);
@@ -247,6 +220,7 @@ public class CourseTest {
         instance.getGradeMap();
     }
 
+    @Test
     public void testParameterizedCourseMethod() {
         Course instance = new Course(studentList);
         List<Student> expResult = studentList;
@@ -255,6 +229,7 @@ public class CourseTest {
 
     }
 
+    @Test
     public void testAllOriginalStudentsMethod() {
         Course instance = new Course(studentList);
         Student std = new Student("Student8", "c0690", "male", 4.56);
@@ -266,6 +241,7 @@ public class CourseTest {
 
     }
 
+    @Test
     public void testinvalidstudentMethod() {
         Course instance = new Course(studentList);
         Student expResult = null;
@@ -273,6 +249,7 @@ public class CourseTest {
         assertEquals(expResult, result);
     }
 
+    @Test
     public void testNonCourseObjectMethod() {
         Object obj = new Object();
         Course instance = new Course();
@@ -282,6 +259,7 @@ public class CourseTest {
 
     }
 
+    @Test
     public void testOrder() {
         Course instance = new Course(studentList);
         String expResult = "[{\"gender\":\"Male\",\"grade\":3.53,\"name\":\"Student1\",\"id\":\"C0680\"},"
