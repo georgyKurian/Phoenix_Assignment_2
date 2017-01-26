@@ -6,6 +6,7 @@
 package csd4464.assignment2.phoenix;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -269,6 +270,40 @@ public class CourseTest {
         boolean expResult = false;
         Course instance1= new Course();
         boolean result = instance.equals(instance1);
+        assertEquals(expResult , result);
+    }
+    
+    /*
+    *Test for notEqualMethod
+    */
+    @Test
+    public void testGetGradeMapMethod(){
+        List<Student> stList = new ArrayList<Student>();
+        stList.add(new Student("Student1", "c01", "Male", 3.74));
+        stList.add(new Student("Student2", "c02", "Male", 3.05));
+        stList.add(new Student("Student3", "c03", "Male", 2.55));
+        stList.add(new Student("Student4", "c04", "Female", 2.40));
+        
+        Map<String, Set<Student>> resultMap = new HashMap<String, Set<Student>>();
+        
+        Set<Student> setA = new HashSet<Student>();
+        Set<Student> setB = new HashSet<Student>();
+        Set<Student> setC = new HashSet<Student>();
+        Set<Student> setF = new HashSet<Student>();
+        
+        setA.add(stList.get(0));
+        setB.add(stList.get(1));
+        setC.add(stList.get(2));
+        setF.add(stList.get(3));
+        
+        resultMap.put("A", setA);
+        resultMap.put("B", setB);
+        resultMap.put("C", setC);
+        resultMap.put("F", setF);
+        
+        Course instance = new Course(stList);
+        Map<String, Set<Student>> expResult = resultMap;
+        Map<String, Set<Student>> result = instance.getGradeMap();
         assertEquals(expResult , result);
     }
 
