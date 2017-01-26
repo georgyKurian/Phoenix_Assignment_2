@@ -106,23 +106,20 @@ public class Course {
 
     public Map<String, Set<Student>> getGradeMap() {
         Map<String, Set<Student>> resultMap = new HashMap<String, Set<Student>>();
-        resultMap.put("A+", new HashSet<Student>());
         resultMap.put("A", new HashSet<Student>());
-        resultMap.put("A-", new HashSet<Student>());
-        resultMap.put("B+", new HashSet<Student>());
         resultMap.put("B", new HashSet<Student>());
+        resultMap.put("C", new HashSet<Student>());
+        resultMap.put("F", new HashSet<Student>());
 
         for (Student student : students) {
-            if (student.getGrade() == 4.0) {
-                resultMap.get("A+").add(student);
-            } else if (student.getGrade() >= 3.90) {
+            if (student.getGrade() >= 3.5) {
                 resultMap.get("A").add(student);
-            } else if (student.getGrade() >= 3.80) {
-                resultMap.get("A-").add(student);
-            } else if (student.getGrade() >= 3.70) {
-                resultMap.get("B+").add(student);
-            } else if (student.getGrade() >= 3.60) {
+            } else if (student.getGrade() >= 3.0) {
                 resultMap.get("B").add(student);
+            } else if (student.getGrade() >= 2.5) {
+                resultMap.get("C").add(student);
+            } else {
+                resultMap.get("F").add(student);
             }
 
         }
